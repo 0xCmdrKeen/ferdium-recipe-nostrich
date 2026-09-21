@@ -27,7 +27,7 @@ module.exports = Ferdium => {
     const hasNewPosts = 
       !!document.querySelector('a[href="/"] span.rounded-full');
 
-    Ferdium.setBadge(0, hasNotifications || hasDMs ? 1 : 0);
+    Ferdium.setBadge(0, hasNotifications || hasDMs || hasNewPosts ? 1 : 0);
   };
   Ferdium.loop(getMessages);
 

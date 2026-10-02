@@ -18,16 +18,10 @@ module.exports = Ferdium => {
   });
 
   const getMessages = () => {
-    const hasNotifications = 
-      !!document.querySelector('a[href="/notifications"] span.rounded-full');
+    const hasUnreads = 
+      document.querySelectorAll('nav li a[href] span.rounded-full').length;
 
-    const hasDMs = 
-      !!document.querySelector('a[href="/chat"] span.rounded-full');
-
-    const hasNewPosts = 
-      !!document.querySelector('a[href="/"] span.rounded-full');
-
-    Ferdium.setBadge(0, hasNotifications || hasDMs || hasNewPosts ? 1 : 0);
+    Ferdium.setBadge(0, hasUnreads ? 1 : 0);
   };
   Ferdium.loop(getMessages);
 
